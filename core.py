@@ -10,7 +10,22 @@ class MipsInstruction:
     instruction = None
 
     def __init__(self, instruction):
-        pass
+        if not (isinstance(instruction, str) or len(instruction) == 32):
+            raise Exception()
+
+        self.instruction = instruction.split()
+        self.op = self.instruction[0]
+
+        if self.op == '000000':
+            self.instruction_type = 'R'
+            self.rs = self.instruction[1]
+            self.rt = self.instruction[2]
+            self.rd = self.instruction[3]
+            self.shamt = self.instruction[4]
+            self.func = self.instruction[5]
+
+        else:
+            pass
 
     def has_offset(self):
         pass
@@ -22,7 +37,10 @@ class MipsInstruction:
         pass
 
     def __repr__(self):
-        return self.instruction
+        return "Instruction: {} \nType: {}".format(
+            " ".join(self.instruction),
+            self.instruction_type
+        )
 
 
 class PC:
@@ -43,3 +61,6 @@ class PC:
                 self.next_instruction = MipsInstruction(instruction)
 
             yield self.next_instruction
+
+for instruction in PC().get_instructions():
+    print(instruction)
