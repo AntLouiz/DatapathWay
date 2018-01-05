@@ -7,6 +7,7 @@ class MipsInstruction:
     func = None
     offset = None
     instruction_type = None
+    instruction = None
 
     def __init__(self, instruction):
         pass
@@ -19,6 +20,9 @@ class MipsInstruction:
 
     def _check_instruction(self):
         pass
+
+    def __repr__(self):
+        return self.instruction
 
 
 class PC:
