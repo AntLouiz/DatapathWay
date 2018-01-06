@@ -25,7 +25,10 @@ class MipsInstruction:
             self.func = self.instruction[26:32]
 
         else:
-            pass
+            self.instruction_type = 'I'
+            self.rs = self.instruction[6:11]
+            self.rt = self.instruction[11:16]
+            self.offset = self.instruction[16:32]
 
     def has_offset(self):
         if self.instruction_type == 'R':
