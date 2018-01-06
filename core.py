@@ -13,16 +13,16 @@ class MipsInstruction:
         if not (isinstance(instruction, str) or len(instruction) == 32):
             raise Exception()
 
-        self.instruction = instruction.split()
-        self.op = self.instruction[0]
+        self.instruction = instruction
+        self.op = self.instruction[:6]
 
         if self.op == '000000':
             self.instruction_type = 'R'
-            self.rs = self.instruction[1]
-            self.rt = self.instruction[2]
-            self.rd = self.instruction[3]
-            self.shamt = self.instruction[4]
-            self.func = self.instruction[5]
+            self.rs = self.instruction[6:11]
+            self.rt = self.instruction[11:16]
+            self.rd = self.instruction[16:21]
+            self.shamt = self.instruction[21:26]
+            self.func = self.instruction[26:32]
 
         else:
             pass
@@ -38,7 +38,7 @@ class MipsInstruction:
 
     def __repr__(self):
         return "Instruction: {} \nType: {}".format(
-            " ".join(self.instruction),
+            self.instruction,
             self.instruction_type
         )
 
@@ -61,6 +61,3 @@ class PC:
                 self.next_instruction = MipsInstruction(instruction)
 
             yield self.next_instruction
-
-for instruction in PC().get_instructions():
-    print(instruction)
