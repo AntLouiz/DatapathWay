@@ -28,7 +28,10 @@ class MipsInstruction:
             pass
 
     def has_offset(self):
-        pass
+        if self.instruction_type == 'R':
+            return False
+
+        return True
 
     def get_type(self):
         return self.instruction_type
@@ -61,3 +64,9 @@ class PC:
                 self.next_instruction = MipsInstruction(instruction)
 
             yield self.next_instruction
+
+for instruction in PC().get_instructions():
+    print('func:', instruction.func)
+    print('rs:', instruction.rs)
+    print('rt:', instruction.rt)
+    print('rd:', instruction.rd)
