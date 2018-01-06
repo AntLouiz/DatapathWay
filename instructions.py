@@ -17,6 +17,19 @@ class MipsInstruction:
         self.op = self.instruction[:6]
 
         if self.op == '000000':
+            self._configure_to_registers()
+        else:
+            self._configure_to_imediate()
+
+    def _configure_to_imediate(self):
+            self.instruction_type = 'I'
+            self.rs = self.instruction[6:11]
+            self.rt = self.instruction[11:16]
+            self.offset = self.instruction[16:32]
+
+            return self.instruction
+
+    def _configure_to_registers(self):
             self.instruction_type = 'R'
             self.rs = self.instruction[6:11]
             self.rt = self.instruction[11:16]
@@ -24,11 +37,7 @@ class MipsInstruction:
             self.shamt = self.instruction[21:26]
             self.func = self.instruction[26:32]
 
-        else:
-            self.instruction_type = 'I'
-            self.rs = self.instruction[6:11]
-            self.rt = self.instruction[11:16]
-            self.offset = self.instruction[16:32]
+            return self.instruction
 
     def has_offset(self):
         if self.instruction_type == 'R':
