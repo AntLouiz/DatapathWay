@@ -64,9 +64,3 @@ class PC:
                 self.next_instruction = MipsInstruction(instruction)
 
             yield self.next_instruction
-
-for instruction in PC().get_instructions():
-    print('func:', instruction.func)
-    print('rs:', instruction.rs)
-    print('rt:', instruction.rt)
-    print('rd:', instruction.rd)
