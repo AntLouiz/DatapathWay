@@ -48,6 +48,13 @@ class MipsInstruction:
     def get_type(self):
         return self.instruction_type
 
+    def get_function(self):
+        return self.func
+
+    def get_registers(self):
+        registers = [r for r in [self.rs, self.rt, self.rd] if r]
+        return registers
+
     def __repr__(self):
         return "Instruction: {} \nType: {}".format(
             self.instruction,
