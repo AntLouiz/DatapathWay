@@ -12,7 +12,7 @@ def to_binary(number):
     return "{:0b}".format(number)
 
 
-def extend_to_32(binary_number):
+def extend_to_32(binary_number, negative=False):
     number_length = len(binary_number)
 
     if number_length < 0:
@@ -21,5 +21,8 @@ def extend_to_32(binary_number):
     result = 32 - number_length
 
     zero_fill = "0" * result
+
+    if negative:
+        zero_fill = "1{}".format(zero_fill[1:])
 
     return "{}{}".format(zero_fill, binary_number)
