@@ -28,3 +28,7 @@ class RegistersBank(BaseMemory):
         for i in range(self.total_registers):
             binary_number = to_binary(i)
             self.data[binary_number] = False
+
+
+class Memory(BaseMemory):
+    pass
