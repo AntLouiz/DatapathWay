@@ -12,11 +12,11 @@ def to_binary(number):
     return "{:0b}".format(number)
 
 
-def extend_16_to_32(binary_number):
+def extend_to_32(binary_number):
     number_length = len(binary_number)
 
-    if number_length < 16:
-        raise Exception("The length of word is less than 16.")
+    if number_length < 0:
+        raise Exception("The length of word is less than 0.")
 
     result = 32 - number_length
 
