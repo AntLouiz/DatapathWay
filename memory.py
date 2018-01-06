@@ -1,4 +1,4 @@
-import abc
+from utils import to_binary
 
 
 class BaseMemory:
@@ -20,3 +20,12 @@ class BaseMemory:
         """
 
         return self.data[address]
+
+
+class RegistersBank(BaseMemory):
+    def __init__(self):
+        self.total_registers = 2**3
+
+        for i in range(self.total_registers):
+            binary_number = to_binary(i)
+            self.data[binary_number] = False
