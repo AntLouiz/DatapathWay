@@ -13,7 +13,6 @@ class BaseMemory:
 
         return True
 
-    @abc.abstractmethod
     def get_value(self, address):
         """
         Return a value with a given address
