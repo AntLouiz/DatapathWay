@@ -39,8 +39,6 @@ class MipsInstruction:
     def get_type(self):
         return self.instruction_type
 
-    def _check_instruction(self):
-        pass
 
     def __repr__(self):
         return "Instruction: {} \nType: {}".format(
