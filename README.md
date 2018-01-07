@@ -6,7 +6,7 @@
 
 ### Observaçoes:
 
-* A memória tem 32 endereços.
+* A memória tem 256 endereços.
 * A memória contém valores randomicos de 1 a 40.
 * O registrador $t0 tem o valor 16.
 * Operaçoes que foram implementadas:
