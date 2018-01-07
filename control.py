@@ -14,15 +14,15 @@ class BaseControl(abc.ABC):
 class ControlAdd(BaseControl):
 
     def execute(self):
-        print("Leio o registrador 1")
-        print("Leio o registrador 2")
-        print("Calculo o valor dos registradores na ULA")
-        print("Retorno para o registrador de escrita setado na instruçao")
+        print("Read the register 1")
+        print("Read the register 2")
+        print("Sum the registers values on the ALU")
+        print("Return the result to the write register")
 
 class ControlSub(BaseControl):
 
     def execute(self):
-        print("Leio o registrador 1")
-        print("Leio o registrador 2")
-        print("Subtraio o valor dos registradores na ULA")
-        print("Retorno para o registrador de escrita setado na instruçao")
+        print("Read the register 1")
+        print("Read the register 2")
+        print("Sub the registers values on the ALU")
+        print("Return the result to the write register")
