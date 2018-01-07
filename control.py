@@ -19,6 +19,7 @@ class ControlAdd(BaseControl):
         print("Sum the registers values on the ALU")
         print("Return the result to the write register")
 
+
 class ControlSub(BaseControl):
 
     def execute(self):
