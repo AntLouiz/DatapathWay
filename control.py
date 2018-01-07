@@ -53,3 +53,12 @@ class ControlLw(BaseControl):
         print("Sum the offset with the value of the register 1 in ALU")
         print("Get the memory data of the given result address of ALU calc")
         print("Return the data to the write register")
+
+
+class ControlSw(BaseControl):
+
+    def execute(self):
+        print("Read the register 1")
+        print("Read the register 2")
+        print("Sum the offset with the value of the register 1 in ALU")
+        print("Write the data of register 2 on the ALU result address")
