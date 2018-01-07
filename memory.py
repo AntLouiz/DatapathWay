@@ -6,7 +6,7 @@ class BaseMemory:
 
     def __new__(cls, *args, **kwargs):
         obj = super(BaseMemory).__new__(cls, *args, **kwargs)
-        obj.__dict__ = cls.shared_data
+        obj.__dict__ = cls.data
 
         return obj
 
