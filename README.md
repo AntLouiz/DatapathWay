@@ -11,7 +11,7 @@ Utilize o [Git](https://git-scm.com/) para baixar o projeto em sua máquina.
 Certifique-se que o **Git** está instalado executando no terminal ```git --version```.
 Clone o repósitório em sua máquina executando:
 ```
-        git clone repo
+        git clone https://github.com/AntLouiz/DatapathWay.git
 ```
 
 ### Executando
@@ -24,8 +24,8 @@ Entre na pasta do projeto e execute o seguinte comando:
         python3 main.py
 ```
 
-### Exemplo
-##### Fazendo uma soma utilizando os comandos **lw**, **add** e **sw**.
+## Exemplo
+#### Fazendo uma soma utilizando os comandos **lw**, **add** e **sw**.
 
 Utilizando a linguagem assembly temos os seguintes comandos:
 
