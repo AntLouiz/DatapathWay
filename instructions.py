@@ -69,11 +69,17 @@ class MipsInstruction:
         return FUNCTIONS[self.func]
 
     def __repr__(self):
-        return "\nInstruction: {}\nType: {}\nOperation: {}".format(
-            self.instruction,
-            self.instruction_type,
-            self.get_func()
-        )
+        representation = "-" * 50
+        representation += \
+            "\nInstruction: {}\nType: {}\nOperation: {}\n".format(
+                self.instruction,
+                self.instruction_type,
+                self.get_func()
+            )
+
+        representation += "-" * 50
+
+        return representation
 
 
 class PC:
