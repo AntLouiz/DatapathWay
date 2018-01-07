@@ -44,3 +44,12 @@ class ControlOr(BaseControl):
         print("Read the register 2")
         print("Make a OR with the registers values on the ALU")
         print("Return the result to the write register")
+
+
+class ControlLw(BaseControl):
+
+    def execute(self):
+        print("Read the register 1")
+        print("Sum the offset with the value of the register 1 in ALU")
+        print("Get the memory data of the given result address of ALU calc")
+        print("Return the data to the write register")
