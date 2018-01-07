@@ -46,7 +46,8 @@ Transformando esses comandos em binário, fica:
 ```
 
 Insiro esses comandos no **instructions_file.txt** e executo no terminal ```python3 main.py```.
-A saída esperada será os caminhos percorridos pelos os principais dados de uma instruçao no datapath:
+A saída esperada será os caminhos percorridos pelos os principais dados das instruções
+que foram inseridas no arquivo.
 
 ```
         --------------------------------------------------
