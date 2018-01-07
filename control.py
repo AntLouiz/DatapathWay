@@ -195,10 +195,10 @@ class ControlSw(BaseControl):
         print(instruction)
 
         rs = registers['rs']
-        print("Read the register 1")
+        print("Read the register 1: {}".format(rs))
 
         rt = registers['rt']
-        print("Read the register 2")
+        print("Read the register 2: {}".format(rt))
 
         register_data1 = self.cpu.registers.get_value(rs)
         print("Read data 1: {}".format(register_data1))
