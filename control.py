@@ -76,6 +76,7 @@ class ControlLw(BaseControl):
         self.cpu.registers.set_value(rt, memory_data)
         print("Write data: {}".format(memory_data))
         print("Write register: {}".format(rt))
+        print("\n\n")
 
 class ControlSw(BaseControl):
 
