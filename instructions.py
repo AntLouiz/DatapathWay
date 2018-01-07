@@ -55,7 +55,11 @@ class MipsInstruction:
         return self.func
 
     def get_registers(self):
-        registers = [r for r in [self.rs, self.rt, self.rd] if r]
+        registers = {
+            'rs': self.rs,
+            'rt': self.rt,
+            'rd': self.rd
+        }
         return registers
 
     def get_func(self):
