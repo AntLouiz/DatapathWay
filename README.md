@@ -65,8 +65,8 @@ que foram inseridas no arquivo.
         ALU-in-2: 10000
         ALU-result: 100000
         Address: 100000
-        Read data: 1101
-        Write data: 1101
+        Read data: 10000
+        Write data: 10000
         Write register: 10100
 
 
@@ -82,8 +82,8 @@ que foram inseridas no arquivo.
         ALU-in-2: 10100
         ALU-result: 100100
         Address: 100100
-        Read data: 1100
-        Write data: 1100
+        Read data: 1010
+        Write data: 1010
         Write register: 10101
 
 
@@ -95,12 +95,12 @@ que foram inseridas no arquivo.
         --------------------------------------------------
         Read the register 1: 10101
         Read the register 2: 10100
-        Read data 1: 1100
-        Read data 2: 1101
-        ALU-in-1: 1100
-        ALU-in-2: 1101
-        ALU-result: 11001
-        Write data: 11001
+        Read data 1: 1010
+        Read data 2: 10000
+        ALU-in-1: 1010
+        ALU-in-2: 10000
+        ALU-result: 11010
+        Write data: 11010
         Write register: 01010
 
 
@@ -110,15 +110,16 @@ que foram inseridas no arquivo.
         Type: I
         Operation: sw
         --------------------------------------------------
-        Read the register 1
-        Read the register 2
+        Read the register 1: 01000
+        Read the register 2: 01010
         Read data 1: 10000
-        Read data 2: 11001
+        Read data 2: 11010
         ALU-in-1: 10000
         ALU-in-2: 11000
         ALU-result: 101000
         Address: 101000
-        Write data: 11001
+        Write data: 11010
+
 ```
 
 ## Observações
