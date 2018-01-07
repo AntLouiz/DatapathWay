@@ -1,6 +1,10 @@
 # DatapathWay
 Um programa que auxilia no estudo de um datapath básico.
 
+## Datapath
+O projeto trabalha com o seguinte datapath:
+![Datapath Básico](/images/basic_datapath.jpg)
+
 ## Começando
 
 ### Pré-requisitos
