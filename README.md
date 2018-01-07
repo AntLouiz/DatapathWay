@@ -45,7 +45,7 @@ Transformando esses comandos em binário, fica:
         10101101000010100000000000011000
 ```
 
-Insiro esses comandos no **instructions_file.txt** e executo no terminal ```python main.py```.
+Insiro esses comandos no **instructions_file.txt** e executo no terminal ```python3 main.py```.
 A saída esperada será os caminhos percorridos pelos os principais dados de uma instruçao no datapath:
 
 ```
