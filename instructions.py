@@ -1,5 +1,6 @@
 from li import FUNCTIONS
 
+
 class MipsInstruction:
     op = None
     rs = None
@@ -64,9 +65,10 @@ class MipsInstruction:
         return FUNCTIONS[self.func]
 
     def __repr__(self):
-        return "Instruction: {} \nType: {}".format(
+        return "\nInstruction: {}\nType: {}\nOperation: {}".format(
             self.instruction,
-            self.instruction_type
+            self.instruction_type,
+            self.get_func()
         )
 
 
