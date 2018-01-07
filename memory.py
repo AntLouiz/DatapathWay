@@ -2,16 +2,9 @@ from utils import to_binary
 
 
 class BaseMemory:
-    data = {}
 
-    def __new__(cls, *args, **kwargs):
-        """
-        Make the BaseMemory a Monostate class
-        """
-        obj = super(BaseMemory).__new__(cls, *args, **kwargs)
-        obj.__dict__ = cls.data
-
-        return obj
+    def __init__(self):
+        self.data = {}
 
     def set_value(self, address, value):
         """
@@ -31,6 +24,16 @@ class BaseMemory:
 
 
 class RegistersBank(BaseMemory):
+    data = {}
+
+    def __new__(cls, *args, **kwargs):
+        """
+        Make the BaseMemory a Monostate class
+        """
+        obj = super(BaseMemory).__new__(cls, *args, **kwargs)
+        obj.__dict__ = cls.data
+
+        return obj
 
     def __init__(self):
         self.total_registers = 2**3
@@ -41,4 +44,13 @@ class RegistersBank(BaseMemory):
 
 
 class Memory(BaseMemory):
-    pass
+    data = {}
+
+    def __new__(cls, *args, **kwargs):
+        """
+        Make the BaseMemory a Monostate class
+        """
+        obj = super(BaseMemory).__new__(cls, *args, **kwargs)
+        obj.__dict__ = cls.data
+
+        return obj
