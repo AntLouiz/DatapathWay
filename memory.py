@@ -41,6 +41,13 @@ class RegistersBank(BaseMemory):
 
         for i in range(total_registers):
             binary_number = to_binary(i)
+            if len(binary_number) < 5:
+                zero_fill = 5 - len(binary_number)
+                binary_number = "{}{}".format(
+                    "0" * zero_fill,
+                    binary_number
+                )
+
             if i == 8:
                 self.data[binary_number] = to_binary(16)
             else:
@@ -60,7 +67,7 @@ class Memory(BaseMemory):
         return obj
 
     def __init__(self):
-        total_data = 2**5
+        total_data = 2**8
 
         for i in range(total_data):
             binary_number = to_binary(i)
