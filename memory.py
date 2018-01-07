@@ -30,7 +30,7 @@ class RegistersBank(BaseMemory):
         """
         Make the BaseMemory a Monostate class
         """
-        obj = super(BaseMemory).__new__(cls, *args, **kwargs)
+        obj = super(RegistersBank, cls).__new__(cls, *args, **kwargs)
         obj.__dict__ = cls.data
 
         return obj
@@ -50,7 +50,7 @@ class Memory(BaseMemory):
         """
         Make the BaseMemory a Monostate class
         """
-        obj = super(BaseMemory).__new__(cls, *args, **kwargs)
+        obj = super(Memory, cls).__new__(cls, *args, **kwargs)
         obj.__dict__ = cls.data
 
         return obj
