@@ -1,4 +1,6 @@
-# Remove this commment and the assembly code after the mips instruction.
+# Remove this commment and the assembly code after the all mips instruction.
+# The first line must contain a mips 32 bits instruction.
+# Don't insert spaces or blank lines before or after the mips instructions.
 
 10001101000101000000000000010000 # lw $s2, 16($t0)
 10001101000101010000000000010100 # lw $s3, 20($t0)
