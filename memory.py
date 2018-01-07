@@ -5,6 +5,9 @@ class BaseMemory:
     data = {}
 
     def __new__(cls, *args, **kwargs):
+        """
+        Make the BaseMemory a Monostate class
+        """
         obj = super(BaseMemory).__new__(cls, *args, **kwargs)
         obj.__dict__ = cls.data
 
