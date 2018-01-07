@@ -188,7 +188,32 @@ class ControlLw(BaseControl):
 class ControlSw(BaseControl):
 
     def execute(self):
+        instruction = self.cpu.pc.next_instruction
+        registers = instruction.get_registers()
+        offset = instruction.offset
+        print(instruction)
+
+        rs = registers['rs']
         print("Read the register 1")
+
+        rt = registers['rt']
         print("Read the register 2")
-        print("Sum the offset with the value of the register 1 in ALU")
-        print("Write the data of register 2 on the ALU result address")
+
+        register_data1 = self.cpu.registers.get_value(rs)
+        print("Read data 1: {}".format(register_data1))
+
+        register_data2 = self.cpu.registers.get_value(rt)
+        print("Read data 2: {}".format(register_data2))
+
+        print("ALU-in-1: {}".format(register_data1))
+        print("ALU-in-2: {}".format(offset))
+
+        alu_result = self.cpu.alu.makeSum(register_data1, offset)
+        alu_result = to_binary(int(alu_result, 2))
+        print("ALU-result: {}".format(alu_result))
+
+        print("Address: {}".format(alu_result))
+
+        self.cpu.memory.set_value(alu_result, register_data2)
+        print("Write data: {}".format(register_data2))
+        print("\n\n")
