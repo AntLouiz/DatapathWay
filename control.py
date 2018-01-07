@@ -15,10 +15,34 @@ class BaseControl(abc.ABC):
 class ControlAdd(BaseControl):
 
     def execute(self):
-        print("Read the register 1")
-        print("Read the register 2")
-        print("Sum the registers values on the ALU")
-        print("Return the result to the write register")
+        instruction = self.cpu.pc.next_instruction
+        registers = instruction.get_registers()
+
+        print(instruction)
+        rd = registers['rd']
+
+        rs = registers['rs']
+        print("Read the register 1: {}".format(rs))
+
+        rt = registers['rt']
+        print("Read the register 2: {}".format(rt))
+
+        register_data1 = self.cpu.registers.get_value(rs)
+        print("Read data 1: {}".format(register_data1))
+
+        register_data2 = self.cpu.registers.get_value(rt)
+        print("Read data 2: {}".format(register_data2))
+
+        print("ALU-in-1: {}".format(register_data1))
+        print("ALU-in-2: {}".format(register_data2))
+
+        alu_result = self.cpu.alu.makeSum(register_data1, register_data2)
+        print("ALU-result: {}".format(alu_result))
+
+        print("Write data: {}".format(alu_result))
+
+        print("Write register: {}".format(rd))
+        print("\n\n")
 
 
 class ControlSub(BaseControl):
