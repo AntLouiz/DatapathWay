@@ -157,7 +157,7 @@ class ControlLw(BaseControl):
     def execute(self):
         instruction = self.cpu.pc.next_instruction
         registers = instruction.get_registers()
-        offset = instruction.offset
+        offset = to_binary(int(instruction.offset, 2))
         print(instruction)
 
         rt = registers['rt']
@@ -171,6 +171,7 @@ class ControlLw(BaseControl):
         print("ALU-in-2: {}".format(offset))
 
         alu_result = self.cpu.alu.makeSum(register_data, offset)
+        alu_result = to_binary(int(alu_result, 2))
         print("ALU-result: {}".format(alu_result))
 
         print("Address: {}".format(alu_result))
@@ -190,7 +191,7 @@ class ControlSw(BaseControl):
     def execute(self):
         instruction = self.cpu.pc.next_instruction
         registers = instruction.get_registers()
-        offset = instruction.offset
+        offset = to_binary(int(instruction.offset, 2))
         print(instruction)
 
         rs = registers['rs']
