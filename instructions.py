@@ -1,3 +1,5 @@
+from li import FUNCTIONS
+
 class MipsInstruction:
     op = None
     rs = None
@@ -54,6 +56,12 @@ class MipsInstruction:
     def get_registers(self):
         registers = [r for r in [self.rs, self.rt, self.rd] if r]
         return registers
+
+    def get_func(self):
+        if self.op != '000000':
+            return FUNCTIONS[self.op]
+
+        return FUNCTIONS[self.func]
 
     def __repr__(self):
         return "Instruction: {} \nType: {}".format(
