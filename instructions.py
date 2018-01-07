@@ -16,7 +16,7 @@ class MipsInstruction:
         if not (isinstance(instruction, str) or len(instruction) == 32):
             raise Exception()
 
-        self.instruction = instruction
+        self.instruction = instruction.replace('\n', '')
         self.op = self.instruction[:6]
 
         if self.op == '000000':
