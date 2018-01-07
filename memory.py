@@ -4,6 +4,12 @@ from utils import to_binary
 class BaseMemory:
     data = {}
 
+    def __new__(cls, *args, **kwargs):
+        obj = super(BaseMemory).__new__(cls, *args, **kwargs)
+        obj.__dict__ = cls.shared_data
+
+        return obj
+
     def set_value(self, address, value):
         """
         Set a value with a given address
@@ -22,6 +28,7 @@ class BaseMemory:
 
 
 class RegistersBank(BaseMemory):
+
     def __init__(self):
         self.total_registers = 2**3
 
