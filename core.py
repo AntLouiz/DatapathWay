@@ -30,5 +30,4 @@ class CPU:
         for instruction in self.pc.get_instructions():
             instruction_func = instruction.get_func()
 
-            print(instruction)
             self.control_types[instruction_func].execute()
