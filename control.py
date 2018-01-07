@@ -37,8 +37,10 @@ class ControlAdd(BaseControl):
         print("ALU-in-2: {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeSum(register_data1, register_data2)
+        alu_result = to_binary(int(alu_result, 2))
         print("ALU-result: {}".format(alu_result))
 
+        self.cpu.registers.set_value(rd, alu_result)
         print("Write data: {}".format(alu_result))
 
         print("Write register: {}".format(rd))
@@ -78,6 +80,8 @@ class ControlLw(BaseControl):
         instruction = self.cpu.pc.next_instruction
         registers = instruction.get_registers()
         offset = instruction.offset
+        print(instruction)
+
         rt = registers['rt']
         rs = registers['rs']
         print("Read register 1: {}".format(rs))
@@ -101,6 +105,7 @@ class ControlLw(BaseControl):
         print("Write data: {}".format(memory_data))
         print("Write register: {}".format(rt))
         print("\n\n")
+
 
 class ControlSw(BaseControl):
 
