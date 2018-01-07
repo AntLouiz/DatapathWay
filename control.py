@@ -17,8 +17,8 @@ class ControlAdd(BaseControl):
     def execute(self):
         instruction = self.cpu.pc.next_instruction
         registers = instruction.get_registers()
-
         print(instruction)
+
         rd = registers['rd']
 
         rs = registers['rs']
@@ -52,8 +52,8 @@ class ControlSub(BaseControl):
     def execute(self):
         instruction = self.cpu.pc.next_instruction
         registers = instruction.get_registers()
-
         print(instruction)
+
         rd = registers['rd']
 
         rs = registers['rs']
@@ -87,8 +87,8 @@ class ControlAnd(BaseControl):
     def execute(self):
         instruction = self.cpu.pc.next_instruction
         registers = instruction.get_registers()
-
         print(instruction)
+
         rd = registers['rd']
 
         rs = registers['rs']
@@ -122,8 +122,8 @@ class ControlOr(BaseControl):
     def execute(self):
         instruction = self.cpu.pc.next_instruction
         registers = instruction.get_registers()
-
         print(instruction)
+
         rd = registers['rd']
 
         rs = registers['rs']
