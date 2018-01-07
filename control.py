@@ -1,7 +1,7 @@
 import abc
 
 
-class BaseControl(abc.ABCMeta):
+class BaseControl(abc.ABC):
 
     def __init__(self, cpu):
         self.cpu = cpu
