@@ -35,3 +35,12 @@ class ControlAnd(BaseControl):
         print("Read the register 2")
         print("Make a AND with the registers values on the ALU")
         print("Return the result to the write register")
+
+
+class ControlOr(BaseControl):
+
+    def execute(self):
+        print("Read the register 1")
+        print("Read the register 2")
+        print("Make a OR with the registers values on the ALU")
+        print("Return the result to the write register")
