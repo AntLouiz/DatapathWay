@@ -13,6 +13,9 @@ def to_binary(number):
 
 
 def extend_to_32(binary_number, negative=False):
+    if not isinstance(binary_number, str):
+        return None
+
     number_length = len(binary_number)
 
     if number_length < 0:
