@@ -37,7 +37,6 @@ class ControlAdd(BaseControl):
         print("ALU-in-2: {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeSum(register_data1, register_data2)
-        alu_result = to_binary(int(alu_result, 2))
         print("ALU-result: {}".format(alu_result))
 
         self.cpu.registers.set_value(rd, alu_result)
@@ -72,7 +71,6 @@ class ControlSub(BaseControl):
         print("ALU-in-2: {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeSub(register_data1, register_data2)
-        alu_result = to_binary(int(alu_result, 2))
         print("ALU-result: {}".format(alu_result))
 
         self.cpu.registers.set_value(rd, alu_result)
@@ -107,7 +105,6 @@ class ControlAnd(BaseControl):
         print("ALU-in-2: {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeAnd(register_data1, register_data2)
-        alu_result = to_binary(int(alu_result, 2))
         print("ALU-result: {}".format(alu_result))
 
         self.cpu.registers.set_value(rd, alu_result)
@@ -142,7 +139,6 @@ class ControlOr(BaseControl):
         print("ALU-in-2: {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeOr(register_data1, register_data2)
-        alu_result = to_binary(int(alu_result, 2))
         print("ALU-result: {}".format(alu_result))
 
         self.cpu.registers.set_value(rd, alu_result)
@@ -157,7 +153,7 @@ class ControlLw(BaseControl):
     def execute(self):
         instruction = self.cpu.pc.next_instruction
         registers = instruction.get_registers()
-        offset = to_binary(int(instruction.offset, 2))
+        offset = instruction.get_offset()
         print(instruction)
 
         rt = registers['rt']
@@ -171,12 +167,10 @@ class ControlLw(BaseControl):
         print("ALU-in-2: {}".format(offset))
 
         alu_result = self.cpu.alu.makeSum(register_data, offset)
-        alu_result = to_binary(int(alu_result, 2))
         print("ALU-result: {}".format(alu_result))
 
         print("Address: {}".format(alu_result))
 
-        alu_result = to_binary(int(alu_result, 2))
         memory_data = self.cpu.memory.get_value(alu_result)
         print("Read data: {}".format(memory_data))
 
@@ -191,7 +185,7 @@ class ControlSw(BaseControl):
     def execute(self):
         instruction = self.cpu.pc.next_instruction
         registers = instruction.get_registers()
-        offset = to_binary(int(instruction.offset, 2))
+        offset = instruction.get_offset()
         print(instruction)
 
         rs = registers['rs']
@@ -210,7 +204,6 @@ class ControlSw(BaseControl):
         print("ALU-in-2: {}".format(offset))
 
         alu_result = self.cpu.alu.makeSum(register_data1, offset)
-        alu_result = to_binary(int(alu_result, 2))
         print("ALU-result: {}".format(alu_result))
 
         print("Address: {}".format(alu_result))
