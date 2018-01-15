@@ -62,6 +62,12 @@ class MipsInstruction:
         }
         return registers
 
+    def get_offset(self):
+        if not self.has_offset():
+            return None
+
+        return extend_to_32(self.offset)
+
     def get_func(self):
         if self.op != '000000':
             return FUNCTIONS[self.op]
