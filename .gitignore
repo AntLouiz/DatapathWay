@@ -8,3 +8,4 @@
 *.sqlite3
 .env
 tmp
+instuctions_file.txt
