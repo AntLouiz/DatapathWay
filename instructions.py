@@ -1,5 +1,5 @@
 from li import FUNCTIONS
-
+from utils import extend_to_32
 
 class MipsInstruction:
     op = None
@@ -56,9 +56,9 @@ class MipsInstruction:
 
     def get_registers(self):
         registers = {
-            'rs': self.rs,
-            'rt': self.rt,
-            'rd': self.rd
+            'rs': extend_to_32(self.rs),
+            'rt': extend_to_32(self.rt),
+            'rd': extend_to_32(self.rd)
         }
         return registers
 
