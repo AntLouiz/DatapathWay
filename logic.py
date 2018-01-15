@@ -1,4 +1,5 @@
 from utils import extend_to_32, to_binary
+from decorators import sinalize
 
 
 class ALU:
