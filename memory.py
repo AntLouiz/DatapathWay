@@ -40,7 +40,13 @@ class RegistersBank(BaseMemory):
         total_registers = 2**5
 
         for i in range(total_registers):
-            binary_number = extend_to_32(to_binary(i))
+            binary_number = to_binary(i)
+            if len(binary_number) < 5:
+                zero_fill = 5 - len(binary_number)
+                binary_number = "{}{}".format(
+                    "0" * zero_fill,
+                    binary_number
+                )
 
             if i == 8:
                 self.data[binary_number] = extend_to_32(to_binary(16))

@@ -56,9 +56,9 @@ class MipsInstruction:
 
     def get_registers(self):
         registers = {
-            'rs': extend_to_32(self.rs),
-            'rt': extend_to_32(self.rt),
-            'rd': extend_to_32(self.rd)
+            'rs': self.rs,
+            'rt': self.rt,
+            'rd': self.rd
         }
         return registers
 
