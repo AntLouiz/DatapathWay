@@ -1,4 +1,9 @@
-from utils import extend_to_32, to_binary
+from utils import (
+    extend_to_32, 
+    to_binary, 
+    binaryC2,
+    decimalC2
+)
 from decorators import sinalize
 
 
@@ -8,27 +13,26 @@ class ALU:
     def makeSum(self, a, b):
         negative = False
 
-        result = int(a, 2) + int(b, 2)
+        result = decimalC2(a) + decimalC2(b)
 
-        if result < 0:
-            negative = True
+        if result > 2147483647 or result < -2147483648:
+            print("{}OVERFLOW OCURRENCE".format("-" * 26))
 
-        result = to_binary(abs(result))
-
-        return extend_to_32(result, negative)
+        result = binaryC2(result)
+        return result
 
     @sinalize
     def makeSub(self, a, b):
         negative = False
 
-        result = int(a, 2) - int(b, 2)
+        result = decimalC2(a) - decimalC2(b)
 
-        if result < 0:
-            negative = True
+        if result > 2147483647 or result < -2147483648:
+            print("{}OVERFLOW OCURRENCE".format("-" * 26))
 
-        result = to_binary(abs(result))
+        result = binaryC2(result)
 
-        return extend_to_32(result, negative)
+        return result
 
     def makeAnd(self, a, b):
 

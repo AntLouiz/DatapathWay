@@ -1,5 +1,5 @@
 import random
-from utils import to_binary, extend_to_32
+from utils import to_binary, extend_to_32, binaryC2
 
 
 class BaseMemory:
@@ -73,5 +73,7 @@ class Memory(BaseMemory):
             binary_number = to_binary(i)
             binary_number = extend_to_32(to_binary(i))
 
-            random_number = to_binary(random.randint(1, 40))
-            self.data[binary_number] = extend_to_32(random_number)
+            random_number = binaryC2(
+                random.randint(-(2**31), (2**31) - 1)
+            )
+            self.data[binary_number] = random_number
