@@ -12,54 +12,39 @@ def to_binary(number):
     return "{:0b}".format(number)
 
 
-def extend_to_32(binary_number, negative=False):
+def extend_to_bits(binary_number, bits = 32):
     if not isinstance(binary_number, str):
         return None
 
     number_length = len(binary_number)
 
-    if number_length < 0 or number_length > 32:
-        raise Exception("The length of word is incorrect")
-
-    result = 32 - number_length
+    result = bits - number_length
 
     zero_fill = "0" * result
-
-    if negative:
-        zero_fill = "1{}".format(zero_fill[1:])
 
     return "{}{}".format(zero_fill, binary_number)
 
 
-def binaryC2(number):
-    if number >= 0:
+def to_binaryC2(number, bits = 32):
+    if (number < - (2**(bits-1))) | (number > (2**(bits-1) -1)):
+        raise ValueError(" O número %s não pode ser representado em complemento de dois com apenas %s bits " % (number, bits))        
+    if number >= 0 :
         number = to_binary(number)
-        number = extend_to_32(number)
+        number = extend_to_bits(number, bits)
     else:
-        number = 2**32 + number
+        number = 2**bits + number
         number = to_binary(number)
-        number = extend_to_32(number)
-
+        number = extend_to_bits(number, bits)
     return number
 
-def decimalC2(binary):
-    r = ['0']*32
+    
+def to_decimalC2(binary):
+    bits = len(binary)
 
-    if binary == '11111111111111111111111111111111':
-        return -1
+    decimal = int(binary, 2)
 
     if binary[0] == '0':
-        binary = int(binary, 2)
+        return decimal
     else:
-        for x in range(0,len(binary)):
-            if (binary[x] == '0'):
-                r[x] = '1'
-            elif (binary[x] == '1'):
-                r[x] ='0'
-        binary = ''.join(r)
-
-        result = bin(int(binary, 2) + int('1',2))
-
-        binary = int(binary, 2) * -1
-
-    return binary
+        decimal = - (2**bits -1) + decimal -1
+        return decimal
