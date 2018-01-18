@@ -37,14 +37,18 @@ def to_binaryC2(number, bits = 32):
         number = extend_to_bits(number, bits)
     return number
 
+
+def to_decimalC2(binary, C1 = False):
     
-def to_decimalC2(binary):
     bits = len(binary)
 
     decimal = int(binary, 2)
 
     if binary[0] == '0':
         return decimal
+    elif C1 == True:
+        decimal = - (2**bits -1) + decimal
+        return decimal        
     else:
         decimal = - (2**bits -1) + decimal -1
         return decimal

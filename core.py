@@ -8,6 +8,7 @@ from control import (
     ControlSub,
     ControlAnd,
     ControlOr,
+    ControlNot,
 )
 
 
