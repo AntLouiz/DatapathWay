@@ -1,5 +1,5 @@
 from li import FUNCTIONS
-from utils import extend_to_32
+from utils import extend_to_bits
 
 class MipsInstruction:
     op = None
@@ -66,7 +66,7 @@ class MipsInstruction:
         if not self.has_offset():
             return None
 
-        return extend_to_32(self.offset)
+        return extend_to_bits(self.offset)
 
     def get_func(self):
         if self.op != '000000':

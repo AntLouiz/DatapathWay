@@ -1,5 +1,5 @@
 import random
-from utils import to_binary, extend_to_32, binaryC2
+from utils import to_binary, extend_to_bits, to_binaryC2
 
 
 class BaseMemory:
@@ -49,7 +49,7 @@ class RegistersBank(BaseMemory):
                 )
 
             if i == 8:
-                self.data[binary_number] = extend_to_32(to_binary(16))
+                self.data[binary_number] = extend_to_bits(to_binary(16))
             else:
                 self.data[binary_number] = False
 
@@ -71,9 +71,9 @@ class Memory(BaseMemory):
 
         for i in range(total_data):
             binary_number = to_binary(i)
-            binary_number = extend_to_32(to_binary(i))
+            binary_number = extend_to_bits(to_binary(i))
 
-            random_number = binaryC2(
+            random_number = to_binaryC2(
                 random.randint(-(2**31), (2**31) - 1)
             )
             self.data[binary_number] = random_number

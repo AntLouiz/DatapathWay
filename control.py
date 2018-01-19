@@ -67,8 +67,8 @@ class ControlSub(BaseControl):
         register_data2 = self.cpu.registers.get_value(rt)
         print("Read data 2: {}".format(register_data2))
 
-        print("ALU-in-1: {}".format(register_data1))
-        print("ALU-in-2: {}".format(register_data2))
+        print("ALU-in-1:   {}".format(register_data1))
+        print("ALU-in-2:   {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeSub(register_data1, register_data2)
         print("ALU-result: {}".format(alu_result))

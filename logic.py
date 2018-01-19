@@ -5,12 +5,12 @@ from utils import (
     to_binaryC2,
     to_decimalC2
 )
-from decorators import sinalize
+# from decorators import sinalize
 
 
 class ALU:
 
-    @sinalize
+    # @sinalize
     def makeSum(self, a, b):
 
         result = to_decimalC2(a) + to_decimalC2(b)
@@ -21,7 +21,7 @@ class ALU:
         result = to_binaryC2(result)
         return result
 
-    @sinalize
+    # @sinalize
     def makeSub(self, a, b):
 
         result = to_decimalC2(a) - to_decimalC2(b)

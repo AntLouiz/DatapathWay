@@ -26,8 +26,8 @@ def extend_to_bits(binary_number, bits = 32):
 
 
 def to_binaryC2(number, bits = 32):
-    if (number < - (2**(bits-1))) | (number > (2**(bits-1) -1)):
-        raise ValueError(" O número %s não pode ser representado em complemento de dois com apenas %s bits " % (number, bits))        
+    # if (number < - (2**(bits-1))) | (number > (2**(bits-1) -1)):
+    #     raise ValueError(" O número %s não pode ser representado em complemento de dois com apenas %s bits " % (number, bits))        
     if number >= 0 :
         number = to_binary(number)
         number = extend_to_bits(number, bits)
