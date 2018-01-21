@@ -20,7 +20,8 @@ Clone o repósitório em sua máquina executando:
 
 ### Executando
 Utilize o arquivo **instructions_file.txt.example** como exemplo para a execução do programa.
-Renomeie o arquivo **instructions_file.txt.example** para **instructions_file.txt**.
+Renomeie o arquivo **instructions_file.txt.example** para **instructions_file.txt** (Caso já 
+exista um arquivo com esse nome, você deve apagá-lo ou nenomeá-lo).
 Apague todos os comentários dentro do arquivo.
 Entre na pasta do projeto e execute o seguinte comando:
 
@@ -40,7 +41,7 @@ Utilizando a linguagem assembly temos os seguintes comandos:
         sw $t2, 24($t0)
 ```
 
-Transformando esses comandos em binário, fica:
+Transformando esses comandos em binário, obtemos:
 
 ```
         10001101000101000000000000010000
@@ -54,71 +55,78 @@ A saída esperada será os caminhos percorridos pelos os principais dados das in
 que foram inseridas no arquivo.
 
 ```
-        --------------------------------------------------
+        ---------------------------------------------
         Instruction: 10001101000101000000000000010000
         Type: I
         Operation: lw
-        --------------------------------------------------
+        ---------------------------------------------
         Read register 1: 01000
-        Read data 1: 10000
-        ALU-in-1: 10000
-        ALU-in-2: 10000
-        ALU-result: 100000
-        Address: 100000
-        Read data: 10000
-        Write data: 10000
+        Read data 1: 00000000000000000000000000010000
+        ALU-in-1:    00000000000000000000000000010000
+        ALU-in-2:    00000000000000000000000000010000
+        ALU-result:  00000000000000000000000000100000
+        Address:     00000000000000000000000000100000
+        Read data:   01011101110100100111011101101000
+        Write data:  01011101110100100111011101101000
         Write register: 10100
+        ---------------------------------------------
 
 
 
-        --------------------------------------------------
+        ---------------------------------------------
         Instruction: 10001101000101010000000000010100
         Type: I
         Operation: lw
-        --------------------------------------------------
+        ---------------------------------------------
         Read register 1: 01000
-        Read data 1: 10000
-        ALU-in-1: 10000
-        ALU-in-2: 10100
-        ALU-result: 100100
-        Address: 100100
-        Read data: 1010
-        Write data: 1010
+        Read data 1: 00000000000000000000000000010000
+        ALU-in-1:    00000000000000000000000000010000
+        ALU-in-2:    00000000000000000000000000010100
+        ALU-result:  00000000000000000000000000100100
+        Address:     00000000000000000000000000100100
+        Read data:   01000010100001100001101001110001
+        Write data:  01000010100001100001101001110001
         Write register: 10101
+        ---------------------------------------------
 
 
 
-        --------------------------------------------------
+        ---------------------------------------------
         Instruction: 00000010101101000101000000100000
         Type: R
         Operation: add
-        --------------------------------------------------
+        ---------------------------------------------
         Read the register 1: 10101
         Read the register 2: 10100
-        Read data 1: 1010
-        Read data 2: 10000
-        ALU-in-1: 1010
-        ALU-in-2: 10000
-        ALU-result: 11010
-        Write data: 11010
+        Read data 1: 01000010100001100001101001110001
+        Read data 2: 01011101110100100111011101101000
+        ALU-in-1:    01000010100001100001101001110001
+        ALU-in-2:    01011101110100100111011101101000
+        --------------------OVERFLOW OCURRENCE-------
+        ALU-result:  10100000010110001001000111011001
+        Write data:  10100000010110001001000111011001
         Write register: 01010
+        ---------------------------------------------
 
 
 
-        --------------------------------------------------
+        ---------------------------------------------
         Instruction: 10101101000010100000000000011000
         Type: I
         Operation: sw
-        --------------------------------------------------
+        ---------------------------------------------
         Read the register 1: 01000
         Read the register 2: 01010
-        Read data 1: 10000
-        Read data 2: 11010
-        ALU-in-1: 10000
-        ALU-in-2: 11000
-        ALU-result: 101000
-        Address: 101000
-        Write data: 11010
+        Read data 1: 00000000000000000000000000010000
+        Read data 2: 10100000010110001001000111011001
+        ALU-in-1:    00000000000000000000000000010000
+        ALU-in-2:    00000000000000000000000000011000
+        ALU-result:  00000000000000000000000000101000
+        Address:     00000000000000000000000000101000
+        Write data:  10100000010110001001000111011001
+        ---------------------------------------------
+
+
 
 ```
 
@@ -130,8 +138,9 @@ que foram inseridas no arquivo.
 * $t8-$t9 :: 24 - 25
 
 ### Memória:
+* Este datapath realiza operações com números inteiros em complemento de 2
 * A memória contém apenas 256 endereços.
-* A memória contém valores randômicos de 1 a 200.
+* A memória contém valores randômicos de -(2**31) até (2**31 - 1).
 * O registrador $t0 tem o valor 16.
 * Operações que foram implementadas:
 
