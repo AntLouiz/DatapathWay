@@ -16,7 +16,7 @@ class ALU:
         result = to_decimalC2(a) + to_decimalC2(b)
 
         if result > (2**31 -1) or result < -(2**31):
-            print("{}OVERFLOW OCURRENCE".format("-" * 26))
+            print("{}OVERFLOW OCURRENCE{}".format("-" * 20, "-" * 7))
 
         result = to_binaryC2(result)
         return result

@@ -33,16 +33,18 @@ class ControlAdd(BaseControl):
         register_data2 = self.cpu.registers.get_value(rt)
         print("Read data 2: {}".format(register_data2))
 
-        print("ALU-in-1: {}".format(register_data1))
-        print("ALU-in-2: {}".format(register_data2))
+        print("ALU-in-1:    {}".format(register_data1))
+        print("ALU-in-2:    {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeSum(register_data1, register_data2)
-        print("ALU-result: {}".format(alu_result))
+        print("ALU-result:  {}".format(alu_result))
 
         self.cpu.registers.set_value(rd, alu_result)
-        print("Write data: {}".format(alu_result))
+        print("Write data:  {}".format(alu_result))
 
         print("Write register: {}".format(rd))
+        
+        print("{}".format("-" * 45))
         print("\n\n")
 
 
@@ -67,17 +69,19 @@ class ControlSub(BaseControl):
         register_data2 = self.cpu.registers.get_value(rt)
         print("Read data 2: {}".format(register_data2))
 
-        print("ALU-in-1:   {}".format(register_data1))
-        print("ALU-in-2:   {}".format(register_data2))
+        print("ALU-in-1:    {}".format(register_data1))
+        print("ALU-in-2:    {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeSub(register_data1, register_data2)
-        print("ALU-result: {}".format(alu_result))
+        print("ALU-result:  {}".format(alu_result))
 
         self.cpu.registers.set_value(rd, alu_result)
-        print("Write data: {}".format(alu_result))
+        print("Write data:  {}".format(alu_result))
 
         print("Write register: {}".format(rd))
-        print("\n\n")
+        
+        print("{}".format("-" * 45))
+        print("\n\n")   
 
 
 class ControlAnd(BaseControl):
@@ -101,16 +105,18 @@ class ControlAnd(BaseControl):
         register_data2 = self.cpu.registers.get_value(rt)
         print("Read data 2: {}".format(register_data2))
 
-        print("ALU-in-1: {}".format(register_data1))
-        print("ALU-in-2: {}".format(register_data2))
+        print("ALU-in-1:    {}".format(register_data1))
+        print("ALU-in-2:    {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeAnd(register_data1, register_data2)
-        print("ALU-result: {}".format(alu_result))
+        print("ALU-result:  {}".format(alu_result))
 
         self.cpu.registers.set_value(rd, alu_result)
-        print("Write data: {}".format(alu_result))
+        print("Write data:  {}".format(alu_result))
 
         print("Write register: {}".format(rd))
+        
+        print("{}".format("-" * 45))
         print("\n\n")
 
 
@@ -135,16 +141,18 @@ class ControlOr(BaseControl):
         register_data2 = self.cpu.registers.get_value(rt)
         print("Read data 2: {}".format(register_data2))
 
-        print("ALU-in-1: {}".format(register_data1))
-        print("ALU-in-2: {}".format(register_data2))
+        print("ALU-in-1:    {}".format(register_data1))
+        print("ALU-in-2:    {}".format(register_data2))
 
         alu_result = self.cpu.alu.makeOr(register_data1, register_data2)
-        print("ALU-result: {}".format(alu_result))
+        print("ALU-result:  {}".format(alu_result))
 
         self.cpu.registers.set_value(rd, alu_result)
-        print("Write data: {}".format(alu_result))
+        print("Write data:  {}".format(alu_result))
 
         print("Write register: {}".format(rd))
+        
+        print("{}".format("-" * 45))
         print("\n\n")
 
 
@@ -163,20 +171,22 @@ class ControlLw(BaseControl):
         register_data = self.cpu.registers.get_value(rs)
         print("Read data 1: {}".format(register_data))
 
-        print("ALU-in-1: {}".format(register_data))
-        print("ALU-in-2: {}".format(offset))
+        print("ALU-in-1:    {}".format(register_data))
+        print("ALU-in-2:    {}".format(offset))
 
         alu_result = self.cpu.alu.makeSum(register_data, offset)
-        print("ALU-result: {}".format(alu_result))
+        print("ALU-result:  {}".format(alu_result))
 
-        print("Address: {}".format(alu_result))
+        print("Address:     {}".format(alu_result))
 
         memory_data = self.cpu.memory.get_value(alu_result)
-        print("Read data: {}".format(memory_data))
+        print("Read data:   {}".format(memory_data))
 
         self.cpu.registers.set_value(rt, memory_data)
-        print("Write data: {}".format(memory_data))
+        print("Write data:  {}".format(memory_data))
         print("Write register: {}".format(rt))
+        
+        print("{}".format("-" * 45))
         print("\n\n")
 
 
@@ -200,14 +210,16 @@ class ControlSw(BaseControl):
         register_data2 = self.cpu.registers.get_value(rt)
         print("Read data 2: {}".format(register_data2))
 
-        print("ALU-in-1: {}".format(register_data1))
-        print("ALU-in-2: {}".format(offset))
+        print("ALU-in-1:    {}".format(register_data1))
+        print("ALU-in-2:    {}".format(offset))
 
         alu_result = self.cpu.alu.makeSum(register_data1, offset)
-        print("ALU-result: {}".format(alu_result))
+        print("ALU-result:  {}".format(alu_result))
 
-        print("Address: {}".format(alu_result))
+        print("Address:     {}".format(alu_result))
 
         self.cpu.memory.set_value(alu_result, register_data2)
-        print("Write data: {}".format(register_data2))
+        print("Write data:  {}".format(register_data2))
+        
+        print("{}".format("-" * 45))
         print("\n\n")
