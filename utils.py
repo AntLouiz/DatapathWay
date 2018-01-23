@@ -26,29 +26,25 @@ def extend_to_bits(binary_number, bits = 32):
 
 
 def to_binaryC2(number, bits = 32):
-    # if (number < - (2**(bits-1))) | (number > (2**(bits-1) -1)):
-    #     raise ValueError(" O número %s não pode ser representado em complemento de dois com apenas %s bits " % (number, bits))        
     if number >= 0 :
         number = to_binary(number)
         number = extend_to_bits(number, bits)
+        return number
     else:
         number = 2**bits + number
         number = to_binary(number)
         number = extend_to_bits(number, bits)
-    return number
+        return number
 
 
-def to_decimalC2(binary, C1 = False):
+def to_decimalC2(binary):
     
     bits = len(binary)
 
     decimal = int(binary, 2)
 
     if binary[0] == '0':
-        return decimal
-    elif C1 == True:
-        decimal = - (2**bits -1) + decimal
-        return decimal        
+        return decimal       
     else:
         decimal = - (2**bits -1) + decimal -1
         return decimal
