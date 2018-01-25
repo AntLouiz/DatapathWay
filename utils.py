@@ -28,7 +28,7 @@ def extend_to_bits(binary_number, bits = 32):
 def to_binaryC2(number, bits = 32):
     if not isinstance(number, int):
         raise Exception()
-        
+
     if number >= 0 :
         number = to_binary(number)
         number = extend_to_bits(number, bits)

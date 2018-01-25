@@ -52,9 +52,10 @@ class ALU:
         return extend_to_bits(result)
     
     def makeNot(self, a):
-        
-        a = int(a, 2)
+        a_len = len(a)
 
-        result = to_binarcyC2(~a)
+        a = to_decimalC2(a)
+
+        result = to_binaryC2(~a, a_len)
 
         return result
