@@ -28,6 +28,7 @@ def extend_to_bits(binary_number, bits = 32):
 def to_binaryC2(number, bits = 32):
     if not isinstance(number, int):
         raise Exception()
+        
     if number >= 0 :
         number = to_binary(number)
         number = extend_to_bits(number, bits)
@@ -39,14 +40,15 @@ def to_binaryC2(number, bits = 32):
         return number
 
 
-def to_decimalC2(binary):
+def to_decimalC2(binary_number):
     if not isinstance(binary_number, str):
-        return None    
-    bits = len(binary)
+        return None 
 
-    decimal = int(binary, 2)
+    bits = len(binary_number)
 
-    if binary[0] == '0':
+    decimal = int(binary_number, 2)
+
+    if binary_number[0] == '0':
         return decimal       
     else:
         decimal = - (2**bits -1) + decimal -1

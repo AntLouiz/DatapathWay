@@ -77,3 +77,4 @@ class Memory(BaseMemory):
                 random.randint(-(2**31), (2**31) - 1)
             )
             self.data[binary_number] = random_number
+
