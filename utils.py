@@ -51,5 +51,5 @@ def to_decimalC2(binary_number):
     if binary_number[0] == '0':
         return decimal       
     else:
-        decimal = - (2**bits -1) + decimal -1
+        decimal = - (2**bits) + decimal
         return decimal
