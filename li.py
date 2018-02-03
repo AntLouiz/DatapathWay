@@ -1,3 +1,4 @@
+# Intruçoes que o programa reconhece
 FUNCTIONS = {
     '101011': 'sw',
     '100011': 'lw',
