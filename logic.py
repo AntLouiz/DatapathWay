@@ -10,7 +10,6 @@ from utils import (
 
 class ALU:
 
-    # @sinalize
     def makeSum(self, a, b):
 
         result = to_decimalC2(a) + to_decimalC2(b)
@@ -21,7 +20,6 @@ class ALU:
         result = to_binaryC2(result)
         return result
 
-    # @sinalize
     def makeSub(self, a, b):
 
         result = to_decimalC2(a) - to_decimalC2(b)
