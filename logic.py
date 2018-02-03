@@ -5,7 +5,6 @@ from utils import (
     to_binaryC2,
     to_decimalC2
 )
-# from decorators import sinalize
 
 
 class ALU:
